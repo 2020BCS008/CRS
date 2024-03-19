@@ -1,0 +1,181 @@
+<div class="bg-violet-100"  style="background-image: url(../assets/images/Circuit-Board4.svg)">
+
+
+    <div class="container ">
+        <div class="row">
+            <div class="col-8 mx-auto mt-3 mb-4">
+                <div class="card rounded-lg mt-20 mb-20 w-auto ">
+                    <div class="rounded-lg bg-violet-200 border-2 border-violet-400">
+                        <h2
+                            class="text-center text-5xl text-white bg-violet-500 rounded-lg mt-12 w-1/2 -mb-16 p-2  ml-auto mr-auto">
+                            Raise new Complaint
+                        </h2>
+
+                        <div class="card-body">
+                            <form #registerationForm="ngForm" (ngSubmit)="onSubmit()">
+                                <div class="form-group">
+                                    <label for="username"
+                                        class="leading-7 text-base text-gray-950 mt-20">Username:</label>
+                                    <input type="text"
+                                        class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                        required #username="ngModel" placeholder="Enter Username" id="username"
+                                        name="username" [(ngModel)]="complaint.username" ngModel readonly>
+                                    <span *ngIf="username.invalid && username.touched" style="color: red">Please enter a
+                                        valid
+                                        username.</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="newcomplaint"
+                                        class="leading-7 text-base text-gray-950 mt-3">Complaint:</label>
+                                    <select
+                                        class="w-full py-2.5 bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 leading-8 transition-colors duration-200 ease-in-out"
+                                        id="newcomplaint" name="complaint" [(ngModel)]="complaint.complaint" ngModel
+                                        required #newcomplaint="ngModel">
+                                        <option selected disabled>Select Complaint</option>
+                                        <option value="Unable to make a call">Unable to make a call</option>
+                                        <option value="Unable to receive a call">Unable to receive a call</option>
+                                        <option value="Phone dead">Phone Dead</option>
+                                        <option value="Noisy voice">Noisy Voice</option>
+                                        <option value="Slow broadband speed">Slow broadband speed</option>
+                                        <option value="No signal">No signal</option>
+                                    </select>
+                                    <span *ngIf="newcomplaint.invalid && newcomplaint.touched" style="color: red">Please
+                                        select a valid complaint.
+                                    </span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="fname" class="leading-7 text-base text-gray-950 mt-3">First
+                                        Name:</label>
+                                    <input type="text"
+                                        class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                        required #firstName="ngModel" placeholder="Enter your first name" id="fname"
+                                        name="firstName" [(ngModel)]="complaint.firstName" ngModel>
+                                    <span *ngIf="firstName.invalid && firstName.touched" style="color:red">Please enter
+                                        valid
+                                        first name</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lname" class="leading-7 text-base text-gray-950 mt-3">Last Name:</label>
+                                    <input type="text" required #lastName="ngModel"
+                                        class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                        placeholder="Enter your last name" id="lname" name="lastName"
+                                        [(ngModel)]="complaint.lastName" ngModel>
+                                    <span *ngIf="lastName.invalid && lastName.touched" style="color: red">Please enter
+                                        valid last name
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address" class="leading-7 text-base text-gray-950 mt-3">Current
+                                        Address:</label>
+                                    <input type="text" required #address="ngModel"
+                                        class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                        placeholder="Enter your current address" id="address" name="address"
+                                        [(ngModel)]="complaint.address" ngModel>
+                                    <span *ngIf="address.invalid && address.touched" style="color:red">Please enter
+                                        valid
+                                        address</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pincode" class="leading-7 text-base text-gray-950 mt-3">Area
+                                        Pincode:</label>
+                                    <input type="text" required #pinCode="ngModel"
+                                        class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                        placeholder="Enter your area pincode" id="pincode" name="pinCode" minlength="6"
+                                        [(ngModel)]="complaint.pinCode" ngModel>
+                                    <span *ngIf="pinCode.invalid && pinCode.touched" style="color:red">Please enter
+                                        valid
+                                        pincode</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state" class="leading-7 text-base text-gray-950 mt-3">State:</label>
+                                    <input type="text" required #state="ngModel"
+                                        class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                        placeholder="Enter your state" id="state" name="state"
+                                        [(ngModel)]="complaint.state" ngModel>
+                                    <span *ngIf="state.invalid && state.touched" style="color:red">Please enter valid
+                                        state</span>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label for="contact" class="leading-7 text-base text-gray-950 mt-3">Phone no.
+                                        :</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend w-full">
+                                            <span class="input-group-text rounded-lg">+91</span>
+                                            <input type="text" required #contact="ngModel"
+                                                class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                                placeholder="Enter your contact number" id="contact" name="contact"
+                                                minlength="10" [(ngModel)]="complaint.contact" ngModel>
+                                        </div>
+                                        <span *ngIf="contact.invalid && contact.touched" style="color:red">Please enter
+                                            valid
+                                            phone number
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="text-center">
+
+                                    <button type="submit"
+                                        class="flex mx-auto mb-11 text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg mt-12"
+                                        [disabled]="registerationForm.invalid" data-toggle="modal"
+                                        data-target="#myModal">Register Complaint</button>
+                                    <!-- The Modal -->
+                                    <div class="modal fade" id="myModal">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content bg-violet-300 rounded-lg ">
+
+                                                <!-- Modal Header -->
+                                                <div class="mt-11 mb-16 text-xl">
+                                                    <h4 class="modal-title">Complaint Registration</h4>
+                                                    <!-- <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button> -->
+                                                </div>
+
+                                                <!-- Modal body -->
+                                                <div class="modal-body rounded-lg ">
+                                                    <h5 *ngIf="isValid" style="color:green">{{message}}</h5>
+
+                                                    <div *ngIf="isValid" class="text-center">
+                                                        <hr>
+                                                        <p><b>Complaint Is: </b>{{complaint.id}}</p>
+                                                        <p><b>Complaint: </b> {{complaint.complaint}}</p>
+                                                        <p><b>Status: </b><span
+                                                                style="color: red">{{complaint.status}}</span>
+                                                        </p>
+                                                        <p><b>Customer Name: </b>{{complaint.firstName}}
+                                                            {{complaint.lastName}}
+                                                        </p>
+                                                        <p><b>Username: </b>{{complaint.username}}</p>
+                                                        <p><b>Current Address: </b>{{complaint.address}},
+                                                            {{complaint.state}}
+                                                        </p>
+                                                        <p><b>Pincode: </b>{{complaint.pinCode}}</p>
+                                                        <p><b>Contact Number: </b>{{complaint.contact}}</p>
+                                                    </div>
+                                                    <span class="text-xl" *ngIf="!isValid" style="color: rgb(255, 0, 0)">{{message}}</span>
+                                                </div>
+
+                                                <!-- Modal footer -->
+                                                <div class="mb-11">
+                                                    <button type="button"
+                                                        class=" text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg mt-12"
+                                                        data-dismiss="modal" (click)="onClick()">Close</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

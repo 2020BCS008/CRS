@@ -1,0 +1,85 @@
+<div class="bg-violet-100" style="background-image: url(../assets/images/Circuit-Board4.svg)">
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mx-auto mt-20 mb-20">
+                <div class="card rounded-lg bg-violet-200 border-2 border-violet-600">
+                    <div class="mt-12 mb-6">
+                        <h4 class="text-center text-3xl">Update Complaint Status</h4>
+                    </div>
+                    <div class="card-body">
+                        <form #assign="ngForm" (ngSubmit)="assignStatus()">
+                            <div class="form-group">
+                                <label  class="leading-7 text-base text-gray-950"
+                                for="st">Select Status:</label>
+                                <select [(ngModel)]="complaint.status" name="status"
+                                    class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-2.5 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                    id="st" #st="ngModel" required ngModel>
+                                    <option value="WIP">WIP</option>
+                                    <option value="RESOLVED">RESOLVED</option>
+                                    <option value="ESCALATED">ESCALATED</option>
+                                </select>
+                                <span *ngIf="st.invalid && st.touched" style="color: red;">Please select a status</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label  class="leading-7 text-base text-gray-950 mt-6" for="rmk">Remark:</label>
+                                <input type="text"
+                                    class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-2.5 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                    required #rmk="ngModel" placeholder="Enter status remark" id="rmk" name="remark"
+                                    [(ngModel)]="complaint.remark" ngModel>
+                                <span *ngIf="rmk.invalid && rmk.touched" style="color:red">Please enter valid
+                                    remark</span>
+                            </div>
+
+
+                            <div class="text-center">
+
+                                <button type="submit"
+                                    class="flex mx-auto text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg mt-12"
+                                    data-toggle="modal" [disabled]="assign.invalid" data-target="#myModal">Update Status
+                                </button>
+
+                                <!-- The Modal -->
+                                <div class="modal fade" id="myModal">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content  bg-violet-200 rounded-lg">
+
+                                            <!-- Modal Header -->
+                                            <div class="mt-11">
+                                             
+                                                <h4 class="modal-title text-xl">Assign Status</h4>
+                                                <!-- <button type="button" class="close"
+                                                    data-dismiss="modal">&times;
+                                                </button> -->
+                                            </div>
+
+                                            <!-- Modal body -->
+                                            <div class="modal-body mt-12 text-3xl">
+                                                <span *ngIf="isValid" style="color:green">{{message}}</span>
+                                                <span *ngIf="!isValid" style="color: red">{{message}}</span>
+                                            </div>
+
+                                            <!-- Modal footer -->
+                                            <div class="">
+                                                <button type="button" 
+                                                class="flex mx-auto  text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg m-12"
+
+                                                (click)="onClick()"
+                                                    data-dismiss="modal">Close</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

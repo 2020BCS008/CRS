@@ -1,0 +1,63 @@
+<main>
+    <div class="container" style="background-image: url(../assets/images/Circuit-Board4.svg)">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-center text-5xl text-white bg-violet-500 rounded-lg mt-12 mb-12 p-2">All Available Customer's</h2>
+
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg mr-11 ml-11 mb-12">
+                    <table class="w-full text-sm text-left rtl:text-right text-blue-100">
+                        <thead class="text-xs text-gray-950 uppercase bg-violet-400 ">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Sr.No
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Customer Id
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    User Name
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    First Name
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Last Name
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Pincode
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    E-mail
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Contact
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-violet-200 border-b border-violet-400 text-black " *ngFor="let customer of user; let i = index">
+                                <td class="px-6 py-4">{{ i + 1 }}</td>
+                                <td class="px-6 py-4"><span>{{ customer.userId }}</span></td>
+                                <td class="px-6 py-4"><span>{{ customer.username }}</span></td>
+                                <td class="px-6 py-4"><span>{{ customer.firstName }}</span></td>
+                                <td class="px-6 py-4"><span>{{ customer.lastName }}</span></td>
+                                <td class="px-6 py-4"><span>{{ customer.pinCode }}</span></td>
+                                <td class="px-6 py-4"><span>{{ customer.email }}</span></td>
+                                <td class="px-6 py-4"><span>{{ customer.phone }}</span></td>
+                                <td class="px-6 py-4">
+                                    <div class="flex flex-row gap-2" role="group" aria-label="Basic example">
+                                        <button (click)="deleteCustomer(customer.userId)" class="bg-red-600 text-white w-full p-2 flex flex-row justify-center gap-2 items-center rounded-lg hover:bg-red-700 duration-100 ease-in-out">Delete</button>
+                                        <button (click)="updateCustomer(customer.username)" class="bg-green-500 text-white w-full p-2 flex flex-row justify-center gap-2 items-center rounded-lg hover:bg-green-600 duration-100 ease-in-out">Update</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

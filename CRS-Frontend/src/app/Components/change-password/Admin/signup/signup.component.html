@@ -1,0 +1,193 @@
+<div class="grid grid-flow-col auto-cols-max bg-violet-100 "  style="background-image: url(../assets/images/Circuit-Board4.svg)">
+    <aside class="relative bg-sidebar h-auto w-auto hidden sm:block shadow-xl text-black bg-violet-400 justify-start">
+        <div class="p-6">
+            <a class=" text-xl font-semibold uppercase hover:text-gray-300 ">Admin:<br>
+                <p class="">
+                    {{name}}
+                </p>
+                <p class="text-sm text-center ">{{username}}
+                </p><br>
+            </a>
+        </div>
+        <nav class=" text-base font-semibold pt-3 text-black">
+            <a routerLink="admin-dashboard"   *ngIf="loginService.isLoggedIn()" (click)="dashboard()"
+                    class="flex items-center active-nav-link  py-4 pl-6 nav-item bg-violet-400 border-t border-b  border-gray-200">
+                    <b>&nbsp;&nbsp;&nbsp;Dashboard</b>
+                </a>
+            <a routerLink="/register-user" class="flex items-center active-nav-link  py-4 pl-6 nav-item  bg-violet-500 border-b border-gray-200 justify-start">
+                <i class="fas fa-sticky-note mr-3"></i>
+                Add User
+            </a>
+            <a href="" class="flex items-center  opacity-75 hover:opacity-100 py-4 pl-6 nav-item border-b border-gray-200 justify-start">
+                <i class="fas fa-table mr-3"></i>
+                Analytics
+            </a>
+            <a href="" class="flex items-center text-black opacity-75 hover:opacity-100 py-4 pl-6 nav-item border-b border-gray-200 justify-start">
+                <i class="fas fa-align-left mr-3"></i>
+                Active Complaint
+            </a>
+        </nav>
+    </aside>
+    <div class="ml-80">
+
+
+        <div class="container  mt-16 mb-16 border-2 border-violet-500 rounded-lg bg-violet-200">
+            <div class="text-center my-6">
+                <img class="rounded-full w-16 h-auto mx-auto" src="../assets/images/users.png"
+                    alt="ProfilePhoto">
+            </div>
+            <div class=" m-8 ">
+                <h1 class="text-3xl text-gray-900 pb-4 mb-4 border-b border-gray-200 text-center">User Registration
+                </h1>
+            </div>
+            <div class=" ">
+                <form #registerationForm="ngForm" (ngSubmit)="onSubmit()">
+                    <section class="">
+                        <div class="  ">
+                            <label for="username">Choose Role:</label>
+                        </div>
+                        <div class="grid w-[40rem] grid-cols-3 gap-2 rounded-xl bg-gray-200 p-2">
+                            <div>
+                                <input type="radio" name="option" id="customer" value="CUSTOMER" class="peer hidden"
+                                    [(ngModel)]="user.roleName" />
+                                <label for="customer"
+                                    class="block border-2 mt-2 border-indigo-500 cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-violet-500 peer-checked:font-bold peer-checked:text-white">Customer
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" name="option" id="manager" value="MANAGER" class="peer hidden"
+                                    [(ngModel)]="user.roleName" />
+                                <label for="manager"
+                                    class="block border-2 mt-2  border-indigo-500 cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-violet-500 peer-checked:font-bold peer-checked:text-white">Manager
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" name="option" id="engineer" value="ENGINEER" class="peer hidden"
+                                    [(ngModel)]="user.roleName" />
+                                <label for="engineer"
+                                    class="block border-2 mt-2  border-indigo-500 cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-violet-500 peer-checked:font-bold peer-checked:text-white">Engineer
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="  ">
+                        <label for="username" class="leading-7 text-base text-gray-950 mt-3">Username:</label>
+                        <input type="text"
+                            class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                            required #username="ngModel" placeholder="Enter Username" id="username" name="username"
+                            [(ngModel)]="user.username" ngModel>
+                        <span *ngIf="username.invalid && username.touched" style="color: red">Please enter a
+                            valid
+                            username.</span>
+                    </div>
+                    <div class="  ">
+                        <label for="pwd" class="leading-7 text-base text-gray-950 mt-3">Password:</label>
+                        <input type="password" required #password="ngModel"
+                            class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                            placeholder="Enter password" id="pwd" minlength="8" name="password"
+                            [(ngModel)]="user.password" ngModel>
+                        <span *ngIf="password.invalid && password.touched" style="color: red">Please enter
+                            valid
+                            password of minimum 8 characters.</span>
+                    </div>
+                    <div class="  ">
+                        <label for="fname" class="leading-7 text-base text-gray-950 mt-3">First Name:</label>
+                        <input type="text" required #firstName="ngModel"
+                            class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                            placeholder="Enter your first name" id="fname" name="firstName" [(ngModel)]="user.firstName"
+                            ngModel>
+                        <span *ngIf="firstName.invalid && firstName.touched" style="color:red">Please enter
+                            valid
+                            first name</span>
+                    </div>
+                    <div class="  ">
+                        <label for="lname" class="leading-7 text-base text-gray-950 mt-3">Last Name:</label>
+                        <input type="text" required #lastName="ngModel"
+                            class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                            placeholder="Enter your last name" id="lname" name="lastName" [(ngModel)]="user.lastName"
+                            ngModel>
+                        <span *ngIf="lastName.invalid && lastName.touched" style="color: red">Please enter
+                            valid
+                            last name</span>
+                    </div>
+                    <div class="  ">
+                        <label for="pincode" class="leading-7 text-base text-gray-950 mt-3">Area Pincode:</label>
+                        <input type="text" required #pinCode="ngModel"
+                            class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                            placeholder="Enter your area pincode" id="pincode" name="pinCode" minlength="6"
+                            [(ngModel)]="user.pinCode" ngModel>
+                        <span *ngIf="pinCode.invalid && pinCode.touched" style="color:red">Please enter
+                            valid
+                            pincode</span>
+                    </div>
+                    <div class="  ">
+                        <label for="email" class="leading-7 text-base text-gray-950 mt-3">Email:</label>
+                        <input type="email" required #email="ngModel"
+                            class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                            placeholder="Enter your email address" id="email" name="email" [(ngModel)]="user.email"
+                            ngModel>
+                        <span *ngIf="email.invalid && email.touched" style="color:red">Please enter valid
+                            email
+                            address</span>
+                    </div>
+                    <div class="  ">
+                        <label for="phn" class="leading-7 text-base text-gray-950 mt-3">Phone no. :</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend w-full">
+                                <span class="input-group-text">+91</span>
+                                <input type="text" required #phone="ngModel"
+                                    class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                    placeholder="Enter your phone number" id="phn" name="phone" minlength="10"
+                                    [(ngModel)]="user.phone" ngModel>
+                            </div>
+                        </div>
+                        <span *ngIf="phone.invalid && phone.touched" style="color:red">Please enter valid
+                            phone
+                            number</span>
+                    </div>
+
+
+                    <div class="flex flex-row gap-2 mt-8">
+                        <button type="submit" [disabled]="registerationForm.invalid" data-toggle="modal"
+                            data-target="#myModal"
+                            class="bg-green-500 text-white w-full p-2 flex flex-row justify-center gap-2 items-center rounded-lg hover:bg-green-600 duration-100 ease-in-out">
+                            Register
+                        </button>
+                        <button type="reset"
+                            class="bg-gray-700 text-white w-full p-2 flex flex-row justify-center gap-2 items-center rounded-lg hover:bg-gray-800 duration-100 ease-in-out">
+                            Reset
+                        </button>
+                    </div>
+
+
+                    <div class="mt-7 ">
+                        <div class="btn-group">
+                            <!-- The Modal -->
+                            <div class="modal fade" id="myModal">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                            <h4 class="modal-title rounderd-lg">User Registration</h4>
+                                            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                                        </div>
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
+                                            <span *ngIf="isValid" style="color:green">{{message}}</span>
+                                            <span *ngIf="!isValid" style="color: red">{{message}}</span>
+                                        </div>
+                                        <!-- Modal footer -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="text-white bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-purple-600 rounded text-lg"
+                                                data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
