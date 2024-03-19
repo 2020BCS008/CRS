@@ -1,0 +1,77 @@
+<!-- <div class="bg-violet-"> -->
+
+<nav class="text-gray-950  flex mt-0 items-center bg-violet-400 shadow-xl">
+    <div class="">
+        <span class="">
+            <a href="" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0 ml-3">
+                <img class="rounded-full w-10 h-auto" src="../assets/images/AppIcon.png" alt="Icon">
+                <span class="ml-3 text-2xl mt-1">Complaint Redressal System</span>
+            </a>
+        </span>
+    </div>
+
+    <div class="flex mx-auto mt-4 text-gray-900 items-center justify-center">
+        <img class="w-auto h-16 text-white  rounded-lg mb-7 ml- " src="../assets/images/college-icon.png" alt="Icon">
+    </div>
+
+    <div class="">
+        <a *ngIf="!loginService.isLoggedIn()" class="ml-auto flex justify-end">
+            <ul class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                <li class="mr-4 hover:text-gray-900">
+                    <a class="" routerLink="/faq">FAQs/Help</a>
+                </li>
+                <li class="mr-4 hover:text-gray-900">
+                    <a class="" routerLink="/contactus">ContactUs</a>
+                </li>
+                <li class="mr-4 hover:text-gray-900">
+                    <a routerLink="/terms" class="">Terms of Service</a>
+                </li>
+                <li class="mr-4 hover:text-gray-900">
+                    <a class="" routerLink="/feature">About Us</a>
+                </li>
+            </ul>
+        </a>
+
+
+        <a *ngIf="loginService.isLoggedIn()" class="flex justify-end ml-auto">
+            <ul class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                <li class="mr-4 hover:text-gray-900">
+                    <a class="" routerLink="/faq">FAQs/Help</a>
+                </li>
+                <li class="mr-4 hover:text-gray-900">
+                    <a class="" href="/contactus">ContactUs</a>
+                </li>
+
+            </ul>
+        </a>
+    </div>
+
+
+    <ul class="flex mr-4 mt-3 ">
+
+        <li class="">
+            <a routerLink="dashboard" *ngIf="loginService.isLoggedIn()" (click)="dashboard()"
+                class="mr-4 hover:text-gray-900" role="button">
+                <b>Dashboard</b>
+            </a>
+        </li>
+        <li class="">
+            <a *ngIf="loginService.isLoggedIn()" routerLink="/change-password" class="mr-4 hover:text-gray-900">Change
+                Password</a>
+        </li>
+        <li class=" -mt-2">
+            <a *ngIf="!loginService.isLoggedIn()" routerLink="/user-login" role="button"
+                class="inline-flex items-center text-white bg-purple-500 border-0 py-2  px-6 focus:outline-none hover:bg-purple-600 rounded-lg text-lg mr-3">
+                Login/SignUp
+                <svg class="w-5 h-5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 18 16">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
+                </svg>
+            </a>
+            <a *ngIf="loginService.isLoggedIn()" (click)="logout()" role="button"
+                class="inline-flex items-center text-white bg-purple-500 border-0 py-2  px-6 focus:outline-none hover:bg-purple-600 rounded-lg text-lg">Logout</a>
+        </li>
+    </ul>
+
+</nav>

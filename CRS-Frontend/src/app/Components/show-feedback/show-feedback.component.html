@@ -1,0 +1,46 @@
+
+<main class="bg-violet-100" style="background-image: url(../assets/images/Circuit-Board4.svg)">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-center text-5xl text-white bg-violet-500 rounded-lg mt-12 mb-12 p-2">All Customer Feedback's</h2>
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg mr-11 ml-11 mb-12">
+                    <table class="w-full text-base text-left rtl:text-right text-blue-100 dark:text-blue-100 ">
+                        <thead class="text-base text-gray-950 uppercase bg-violet-400">
+                            <tr>
+                                <th scope="col" class="px-3 py-6">
+                                    S.No.
+                                </th>
+                                <th scope="col" class="px-3 py-6">
+                                    Feedback Id
+                                </th>
+                                <th scope="col" class="px-3 py-6">
+                                    Complaint Id
+                                </th>
+                                <th scope="col" class="px-3 py-6">
+                                    Username
+                                </th>
+                                <th scope="col" class="px-3 py-6">
+                                    Complaint
+                                </th>
+                                <th scope="col" class="px-3 py-6">
+                                    Feedback
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-start">
+                            <tr class="bg-violet-200 border-b border-violet-400 text-black" *ngFor="let ticket of feedback">
+                                <td class="px-3 py-3"></td>
+                                <td class="px-3 py-3"><span>{{ ticket.fid }}</span></td>
+                                <td class="px-3 py-3"><span>{{ ticket.cid }}</span></td>
+                                <td class="px-3 py-3"><span>{{ ticket.username }}</span></td>
+                                <td class="px-3 py-3"><span>{{ ticket.complaint }}</span></td>
+                                <td class="px-3 py-3"><span>{{ ticket.feedback }}</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

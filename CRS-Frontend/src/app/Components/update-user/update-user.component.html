@@ -1,0 +1,113 @@
+<section class="bg-violet-100">
+ 
+<div class="container">
+    <div class="row">
+        <div class="col-6 mx-auto mt-3 mb-4">
+            <div class="card bg-violet-200 border-2 border-violet-400 rounded-lg m-16">
+                <div class="card-header mt-7">
+                    <h4 class="text-center text-3xl text-black">Update User</h4>
+                </div>
+                <div class="card-body">
+                    <form #registerationForm="ngForm" (ngSubmit)="onSubmit()">
+
+                        <div class=" ">
+                            <label for="fname" class="leading-7 text-base text-gray-950 mt-3">First Name:</label>
+                            <input type="text"
+                                class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                required #firstName="ngModel" placeholder="Enter your first name" id="fname"
+                                name="firstName" [(ngModel)]=user.firstName ngModel>
+                            <span *ngIf="firstName.invalid && firstName.touched" style="color:red">Please enter valid
+                                first name</span>
+                        </div>
+                        <div class=" ">
+                            <label for="lname" class="leading-7 text-base text-gray-950 mt-3">Last Name:</label>
+                            <input type="text" required #lastName="ngModel"
+                                class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                placeholder="Enter your last name" id="lname" name="lastName" [(ngModel)]=user.lastName
+                                ngModel>
+                            <span *ngIf="lastName.invalid && lastName.touched" style="color: red">Please enter valid
+                                last name</span>
+                        </div>
+                        <div class=" ">
+                            <label for="pincode" class="leading-7 text-base text-gray-950 mt-3">Area Pincode:</label>
+                            <input type="text" required #pinCode="ngModel"
+                                class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                placeholder="Enter your area pincode" id="pincode" name="pinCode" minlength="6"
+                                [(ngModel)]=user.pinCode ngModel>
+                            <span *ngIf="pinCode.invalid && pinCode.touched" style="color:red">Please enter valid
+                                pincode</span>
+                        </div>
+                        <div class=" ">
+                            <label for="email" class="leading-7 text-base text-gray-950 mt-3">Email:</label>
+                            <input type="email" required #email="ngModel"
+                                class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                placeholder="Enter your email address" id="email" name="email" [(ngModel)]=user.email
+                                ngModel>
+                            <span *ngIf="email.invalid && email.touched" style="color:red">Please enter valid email
+                                address</span>
+                        </div>
+
+
+
+
+                        <div class=" ">
+                            <label for="phn" class="leading-7 text-base text-gray-950 mt-3">Phone no. :
+
+                            </label>
+                            <div class="input-group">
+                                <div class="input-group-prepend w-full">
+                                    <span class="input-group-text rounded-lg">+91</span>
+                                    <input type="text" required #phone="ngModel"
+                                    class="w-full bg-white rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                    placeholder="Enter your phone number" id="phn" name="phone" minlength="10"
+                                    [(ngModel)]=user.phone ngModel>
+                                </div>
+                            </div>
+                            <span *ngIf="phone.invalid && phone.touched" style="color:red">Please enter valid phone
+                                number</span>
+                        </div>
+
+                        <div class="text-center">
+
+                            <button type="submit" 
+                            class=" text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg mt-12" 
+                            [disabled]="registerationForm.invalid"
+                                data-toggle="modal" data-target="#myModal">Update User</button>
+                            <!-- The Modal -->
+                            <div class="modal fade" id="myModal">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content  bg-violet-200">
+
+                                        <!-- Modal Header -->
+                                        <div class="rounded-lg mt-6">
+                                            <h4 class="modal-title">Update User</h4>
+                                            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                                        </div>
+
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
+                                            <span *ngIf="isValid" style="color:green">{{message}}</span>
+                                            <span *ngIf="!isValid" style="color: red">{{message}}</span>
+                                        </div>
+
+                                        <!-- Modal footer -->
+                                        <div class="">
+                                            <button type="button" class=" mb-4 text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg mt-12"
+                                                data-dismiss="modal">Close</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+   
+</section>

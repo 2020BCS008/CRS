@@ -1,0 +1,108 @@
+<!-- <div class="[background:radial-gradient(125%_125%_at_10%_10%,#ffedd5_50%,#cffafe_100%)]"> -->
+    <!-- <div class="[background: radial-gradient(
+        150% 150% at 50% 20%,
+        #f2f2f2 0%,  
+        #d7d7d7 40%, 
+        #c3c3c3 80%,
+        #909090 100% 
+      );]"> -->
+
+    <div class="flex justify-center min-h-screen  max-w-full mx-auto bg-violet-100"  style="background-image: url(../assets/images/Circuit-Board4.svg)"> 
+    <!-- bg-gradient-to-r from-cyan-300 to-blue-600 -->
+
+    <div class="container my-auto max-w-md border-2 border-violet-500 p-3 bg-violet-200 rounded-lg">
+
+        <div class="">
+            <div class="text-center my-6">
+                <img class="rounded-full w-16 h-auto mx-auto" src="../assets/images/ProfilePhoto.webp"
+                    alt="ProfilePhoto">
+            </div>
+            <div class="">
+                <div class=" text-center text-xl font-semibold text-gray-700 ">
+                    <h4 class=" ">Welcome User</h4>
+                    <p>Sign in to continue.</p>
+                </div>
+                <hr>
+                <div class="m-6">
+                    <form class="mb-4" #login="ngForm" (ngSubmit)="onSubmit()">
+                        <div class=" mb-6">
+                            <label class="block mb-2 text-sm text-gray-800 dark:text-gray-600" for="email">
+                                <b>Username</b>
+                            </label>
+                            <input type="text" name="username" #username="ngModel"
+                                class="w-full bg-gray-100 bg-opacity-90 rounded border border-gray-300 focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                placeholder="Enter Username" id="email" [(ngModel)]="credentials.username" required
+                                ngModel>
+                            <span *ngIf="username.invalid && username.touched">Please enter a valid username. </span>
+                        </div>
+                        <div class=" mb-6 ">
+                            <div class="flex justify-between">
+
+                                <label class="block mb-2 text-sm text-gray-800 dark:text-gray-600" for="pwd">
+                                    <b>Password</b>
+                                </label>
+                                <a class="" href="#!"
+                                    class="text-sm text-gray-600 focus:outline-none focus:text-indigo-500 hover:text-indigo-500 dark:hover:text-indigo-300">Forgot
+                                    password?
+                                </a>
+                            </div>
+                            <input type="password" name="password" #password="ngModel" minlength="8"
+                                class="w-full bg-gray-100 bg-opacity-90 rounded border border-gray-300 focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                placeholder="Enter Username" placeholder="Enter password" id="pwd"
+                                [(ngModel)]="credentials.password" required ngModel>
+                            <span *ngIf="password.invalid && password.touched">Please enter a valid
+                                password.
+                            </span>
+                        </div>
+                        <div>
+                            <button type="submit" [disabled]="login.invalid"
+                                class="w-full px-3 py-2 text-white bg-violet-500 rounded-md hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out mt-4">Sign
+                                in
+                            </button>
+                        </div>
+                        <p class="text-sm text-center text-gray-500">
+                            Don&#x27;t have an account yet?
+                            <a href=""
+                              class="font-semibold text-violet-500 focus:text-indigo-600 focus:outline-none focus:underline">Sign
+                              up</a>.
+                          </p>
+                    </form>
+
+                      <!-- seperator -->
+          <div class="flex flex-row justify-center mb-8">
+            <span class="absolute bg-violet-100 rounded px-4 text-gray-500">or sign-in with</span>
+            <div class="w-full bg-gray-200 mt-3 h-px"></div>
+          </div>
+          <!-- alternate sign-in -->
+          <div class="flex flex-row gap-2">
+            <button
+              class="bg-green-500 text-white w-full p-2 flex flex-row justify-center gap-2 items-center rounded-lg hover:bg-green-600 duration-100 ease-in-out">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                role="img" class="w-5" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                <g fill="none">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12 0C5.372 0 0 5.373 0 12s5.372 12 12 12c6.627 0 12-5.373 12-12S18.627 0 12 0zm.14 19.018c-3.868 0-7-3.14-7-7.018c0-3.878 3.132-7.018 7-7.018c1.89 0 3.47.697 4.682 1.829l-1.974 1.978v-.004c-.735-.702-1.667-1.062-2.708-1.062c-2.31 0-4.187 1.956-4.187 4.273c0 2.315 1.877 4.277 4.187 4.277c2.096 0 3.522-1.202 3.816-2.852H12.14v-2.737h6.585c.088.47.135.96.135 1.474c0 4.01-2.677 6.86-6.72 6.86z"
+                    fill="currentColor" />
+                </g>
+              </svg>
+              Google
+            </button>
+            <button
+              class="bg-gray-700 text-white w-full p-2 flex flex-row justify-center gap-2 items-center rounded-lg hover:bg-gray-800 duration-100 ease-in-out">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                role="img" class="w-5" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                <g fill="none">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+                    fill="currentColor" />
+                </g>
+              </svg>
+              Github
+            </button>
+          </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
